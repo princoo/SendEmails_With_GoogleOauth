@@ -1,4 +1,3 @@
-// console.log('first')
 const express= require('express')
 const app = express()
 console.log('my first commit')
