@@ -17,7 +17,7 @@ sequelize.sync()
 app.use(cookieSession({
     name: 'google-auth-session',
     keys: ['key1', 'key2']
-  }))
+}))
   
 
 //initializing Passport js
