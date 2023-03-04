@@ -1,6 +1,10 @@
 const express= require('express')
+const {sequelize} =require('./config/db_connect')
 const app = express()
-console.log('my first commit')
+const models= require('./models/MODL')
+sequelize.sync()
 
-console.log('another merge')
+
+
 app.listen(3000,()=> {console.log('server connected')})
+sequelize
