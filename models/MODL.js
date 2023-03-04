@@ -9,13 +9,14 @@ const Users= sequelize.define('Users',{
             unique:true,
             allowNull:false
         },
-        password:{
+        name:{
             type:DataTypes.STRING,
-            allowNull:false,
-        }
-    })
+            unique:false,
+            allowNull:false
+        },
+})
 
-    // sentEmails model
+// sentEmails model
 const Emails= sequelize.define('Emails',{
     sent:{
         type:DataTypes.STRING,
