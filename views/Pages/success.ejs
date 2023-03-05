@@ -45,15 +45,18 @@
     .name {
         width: 60%;
         padding: 10px;
-        background: rgb(16, 10, 10);
+        background: #4343431e;
         border: 1px solid #000000a7;
-        color: #cecece;
+        color: #000000;
+        text-align: center;
     }
     .email {
+        text-align: center;
         width: 60%;
         padding: 10px;
-        background: rgb(2, 179, 37);
+        background: rgb(195, 195, 195);
         border: 1px solid #000000a7;
+
     }
     #pop-up {
         position: absolute;
@@ -64,13 +67,22 @@
         border: 1px solid #000000a7;
         color: #000000;
     }
-    .box a {
+    .box .logout {
+        margin: 10px 0;
+        color: #ffffff;
+        background: #ba0000;
+        padding: 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .box .toform {
         margin: 10px 0;
         color: #000000;
         background: #cecece;
         padding: 10px;
         position: absolute;
-        right: 0;
+        right: 100px;
         top: 0;
     }
 </style>
@@ -78,12 +90,16 @@
     <h1 style="color: #fff;">Welcome</h1>
     <div class="container">
         <div class="box">
-            <p class="name"><%= user.name.givenName  %></p>
+            <p class="name">
+                <%= user.name.familyName  %> <%= user.name.givenName  %></p>
             <div class="dp">
                 <img src="<%= user.picture  %>" alt="">
             </div>
             <p class="email"><%= user.email  %></p>
-            <a href="/logout">Log Out</a>
+            <% if(user.email == "eddymugisha65@gmail.com" || user.email == "princeineza@gmail.com") { %>
+            <a href="/send-letter" class="toform">Send Email</a>
+            <% } %>
+            <a href="/logout" class="logout">Log Out</a>
             <form action="/add/?email=<%=user.email%>&name=<%=user.name.familyName%>" method="POST" Content-Type="application/x-www-form-urlencoded">
                 <button>Subscribe to Our News Letter.</button>
             </form>

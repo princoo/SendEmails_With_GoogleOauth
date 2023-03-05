@@ -4,11 +4,12 @@ const sgMail = require('@sendgrid/mail')
 const dotenv = require('dotenv');
 const { sequelize } = require('../config/db_connect');
 const { DataTypes } = require('sequelize');
-dotenv.config()
 
+dotenv.config()
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const sendLetter = async (req,res) => {
+    const text = req.body.text
     const d = new Date()
     let date = d.getTime()
     const UsersWhoReceived = sequelize.define(`NewsLetter_on_${date}`,{
@@ -37,7 +38,8 @@ const sendLetter = async (req,res) => {
                     border: 20px solid rgb(126, 2, 2);
                 " class="container">
                 ${data[i].name}, Your Weekly News Letter is Here.on ${d.toLocaleDateString()} 
-                Read it <a style="">Here.</a>
+                Read it.</br></br>
+                <pre style="background: #cecece; color: #000; padding: 10px;">${text}</pre>
                 </div>
                 `,
             }

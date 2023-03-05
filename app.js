@@ -7,8 +7,10 @@ const passport = require('passport');
 const session = require('express-session');
 const addUser = require('./controllers/addToDb');
 const sendLetter = require('./controllers/sendNewsLetter');
-
+const bodyParser = require('body-parser')
 const app = express()
+
+app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 sequelize.sync()
 
@@ -18,6 +20,7 @@ app.use(cookieSession({
     name: 'google-auth-session',
     keys: ['key1', 'key2']
 }))
+
   
 
 //initializing Passport js
@@ -28,6 +31,16 @@ app.use(passport.session());
 const isLoggedIn = (req, res, next) => {
     if (req.user) {
         next();
+    } else {
+        res.render('Pages/login');
+    }
+}
+
+const isLoggedInAsAdmin = (req, res, next) => {
+    if (req.user) {
+        if (req.user.email == "eddymugisha65@gmail.com" || req.user.email == "princeineza@gmail.com" ) {
+            next();
+        }
     } else {
         res.render('Pages/login');
     }
@@ -78,7 +91,12 @@ app.get('/google/callback',
 app.post('/add/', addUser)
 
 // send email to all users in database and store record
-app.get('/send', sendLetter)
+app.post('/send', sendLetter)
+
+// preview page of sending email
+app.get('/send-letter', isLoggedInAsAdmin, (req, res) => {
+    res.render('Pages/sendNewsLetter')
+})
 
 app.listen(process.env.PORT,()=> {console.log(`server connected on PORT ${process.env.PORT}`)})
 sequelize
