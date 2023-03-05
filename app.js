@@ -44,7 +44,6 @@ app.get("/failed", (req, res) => {
 
 // on successful login
 app.get("/success",isLoggedIn, (req, res) => {
-    console.log(req.user)
     res.render('Pages/success', {
         user: req.user
     })
