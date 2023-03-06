@@ -104,7 +104,7 @@
             <a href="/send-letter" class="toform">Send Email</a>
             <% } %>
             <a href="/logout" class="logout">Log Out</a>
-            <form action="/add/?email=<%=user.email%>&name=<%=user.name.familyName%>" method="POST" Content-Type="application/x-www-form-urlencoded">
+            <form action="/add/?email=<%=user.email%>&name=<%=user.name.givenName%>" method="POST" Content-Type="application/x-www-form-urlencoded">
                 <button>Subscribe to Our News Letter.</button>
             </form>
         </div>
