@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send News Letter</title>
+</head>
+<style>
+    body {
+        background: #141414;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 30px;
+    }
+    .container {
+        width: 60%;
+        background: #cecece;
+        color: #141414;
+        font-family: sans-serif;
+    }
+    form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-top: 20px;
+    }
+    .title {
+        font-size: 25px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: underline;
+    }
+    .title button {
+        margin-left: 20px;
+    }
+    .title button a {
+        color: #000;
+    }
+    #txt {
+        width: 80%;
+        margin: 20px 0;
+
+        border-color: #1414146d;
+        outline: none;
+        padding: 5px;
+    }
+    button {
+        margin: 10px 0;
+        cursor: pointer;
+        padding: 5px;
+    }
+    #pop-up {
+        padding: 10px;
+        background: #003c00;
+        color: #fff;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        transition: .6s;
+    }
+ </style>
+<body>
+    <div class="container">
+        <div id="pop-up">News Letter Sent.</div>
+        <div class="title">Add News Letter <button><a href="/success">Return</a></button></div>
+        <form onsubmit="event.preventDefault(); send()" id="frm">
+            <textarea name="text" id="txt" rows="20" cols="30" required></textarea>
+            <button>SEND</button>
+        </form>
+    </div>
+    <script>
+        function popContact() {
+            document.getElementById("pop-up").style.display = "flex"
+            setTimeout(() => {
+                document.getElementById("pop-up").style.display = "none"
+            }, 4000)
+        }
+        async function send(){
+            const rawResponse = await fetch('/send', {
+              method: 'POST',
+              headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ text: document.getElementById('txt').value })
+            }).then(() => {
+                document.getElementById("frm").reset()
+                popContact()
+            });
+            
+          };
+    </script>
+</body>
+</html>
