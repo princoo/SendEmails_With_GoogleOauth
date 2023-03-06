@@ -7,7 +7,8 @@ const passport = require('passport');
 const session = require('express-session');
 const addUser = require('./controllers/addToDb');
 const sendLetter = require('./controllers/sendNewsLetter');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const removeUser = require('./controllers/removeFromDb');
 const app = express()
 
 app.use(bodyParser.json())
@@ -59,9 +60,19 @@ app.get("/failed", (req, res) => {
 })
 
 // on successful login
-app.get("/success",isLoggedIn, (req, res) => {
+app.get("/success",isLoggedIn, async (req, res) => {
+    let isSubscribed = false
+    const user = await models.Users.findAll({
+        where: {
+           email: req.user.email
+        }
+    })
+    if (user.length != 0) {
+        isSubscribed = true
+    }
     res.render('Pages/success', {
-        user: req.user
+        user: req.user,
+        isSubscribed: isSubscribed
     })
 })
 
@@ -92,6 +103,9 @@ app.get('/google/callback',
 
 // add user to Users database
 app.post('/add/', addUser)
+
+// add user to Users database
+app.post('/remove/', removeUser)
 
 // send email to all users in database and store record
 app.post('/send', sendLetter)

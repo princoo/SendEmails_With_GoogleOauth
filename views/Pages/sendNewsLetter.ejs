@@ -34,9 +34,17 @@
         align-items: center;
         justify-content: center;
         text-decoration: underline;
+        flex-direction: row;
     }
-    .title button {
+    .title a {
+        padding: 5px;
+        background: #e0dfdf;
         margin-left: 20px;
+        margin-top: 10px;
+        border: 1px solid #00000049;
+        font-size: 18px;
+        color: #000;
+        
     }
     .title button a {
         color: #000;
@@ -67,7 +75,7 @@
 <body>
     <div class="container">
         <div id="pop-up">News Letter Sent.</div>
-        <div class="title">Add News Letter <button><a href="/success">Return</a></button></div>
+        <div class="title">Add News Letter <a href="/success">Return</a></div>
         <form onsubmit="event.preventDefault(); send()" id="frm">
             <textarea name="text" id="txt" rows="20" cols="30" required></textarea>
             <button>SEND</button>
