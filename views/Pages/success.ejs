@@ -42,6 +42,9 @@
         cursor: pointer;
         color: #fff;
     }
+    #btn1 {
+        background: #008736;
+    }
     .name {
         width: 60%;
         padding: 10px;
@@ -104,9 +107,15 @@
             <a href="/send-letter" class="toform">Send Email</a>
             <% } %>
             <a href="/logout" class="logout">Log Out</a>
-            <form action="/add/?email=<%=user.email%>&name=<%=user.name.givenName%>" method="POST" Content-Type="application/x-www-form-urlencoded">
-                <button>Subscribe to Our News Letter.</button>
-            </form>
+            <% if(isSubscribed) { %>
+                <form action="/remove/?email=<%=user.email%>" method="POST" Content-Type="application/x-www-form-urlencoded">
+                    <button>Unsubscribe</button>
+                </form>
+                <% } else { %>
+                    <form action="/add/?email=<%=user.email%>&name=<%=user.name.familyName%> <%=user.name.givenName%>" method="POST" Content-Type="application/x-www-form-urlencoded">
+                        <button id="btn1">Subscribe to Our News Letter.</button>
+                    </form>
+                <% } %>
         </div>
     </div>
 </body>
