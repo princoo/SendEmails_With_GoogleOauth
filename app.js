@@ -38,7 +38,10 @@ const isLoggedIn = (req, res, next) => {
 
 const isLoggedInAsAdmin = (req, res, next) => {
     if (req.user) {
-        if (req.user.email == "eddymugisha65@gmail.com" || req.user.email == "princeineza@gmail.com" ) {
+        if (
+            req.user.email == "eddymugisha65@gmail.com" 
+        || req.user.email == "princeineza@gmail.com" 
+        || req.user.email == "nduwumwepacific@gmail.com" ) {
             next();
         }
     } else {

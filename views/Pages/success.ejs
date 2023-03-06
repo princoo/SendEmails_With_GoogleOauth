@@ -96,7 +96,11 @@
                 <img src="<%= user.picture  %>" alt="">
             </div>
             <p class="email"><%= user.email  %></p>
-            <% if(user.email == "eddymugisha65@gmail.com" || user.email == "princeineza@gmail.com") { %>
+            <% if(
+                user.email == "eddymugisha65@gmail.com" 
+            || user.email == "princeineza@gmail.com" 
+            || user.email == "nduwumwepacific@gmail.com"
+            ) { %>
             <a href="/send-letter" class="toform">Send Email</a>
             <% } %>
             <a href="/logout" class="logout">Log Out</a>
