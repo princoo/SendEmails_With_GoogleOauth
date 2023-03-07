@@ -36,7 +36,6 @@ const isLoggedIn = (req, res, next) => {
         res.render('Pages/login');
     }
 }
-
 const isLoggedInAsAdmin = (req, res, next) => {
     if (req.user) {
         if (
