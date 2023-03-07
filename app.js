@@ -115,4 +115,5 @@ app.get('/send-letter', isLoggedInAsAdmin, (req, res) => {
 })
 
 app.listen(process.env.PORT,()=> {console.log(`server connected on PORT ${process.env.PORT}`)})
+
 sequelize
