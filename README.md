@@ -23,4 +23,4 @@ Built with these technologies
 3. Run `npm install`
 4. Create database
 5. Create an `.env` file for the variables
-6. Run `npm start` to start the project at http://localhost:5000
+6. Run `npm start` to start the project at http://localhost:process.env.PORT
