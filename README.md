@@ -32,9 +32,9 @@ These batch of codes are used to authenticate a User to login using the google e
 
 ## Documentation
 Below are the endpoints exposed by the service
-/,
-/failed,
-/success,
+/ <br>
+/failed <br>
+/success <br>
 
 ### Dependencies
 npm
