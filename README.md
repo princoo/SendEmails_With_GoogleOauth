@@ -4,7 +4,7 @@ Built with these technologies
 <table>
     <tr>
         <td>
-            <a href="https://nodejs.org/en/"><img src="https://i.imgur.com/dSQraap.png" /></a>
+            <a href="https://nodejs.org/en/"><img src="https://cdn0.iconfinder.com/data/icons/designer-skills/128/node-js-512.png" /></a>
         </td>
         <td>
             <a href="https://www.postgresql.org/"><img src="https://cdn.iconscout.com/icon/free/png-256/postgresql-11-1175122.png" /></a>
