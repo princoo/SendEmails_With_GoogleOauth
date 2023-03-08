@@ -37,7 +37,20 @@ Below are the endpoints exposed by the service <br>
 /success <br>
 
 ### Dependencies
-npm
+npm <br>
+sequelize <br>
+@sendgrid/mail <br>
+dotenv <br>
+passport-google-oauth2 <br>
+passport <br>
+pg-hstore <br>
+pg <br>
+nodemon <br>
+express-session <br>
+express <br>
+cookie-session <br>
+body-parser <br>
+ejs <br>
 
 ## Deployment
 link : https://operations-production.up.railway.app/
