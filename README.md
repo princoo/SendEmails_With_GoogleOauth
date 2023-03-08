@@ -18,9 +18,27 @@ Built with these technologies
 ## Installation
 
 #### Backend
+
 1. Clone the project
 2. Go to the project root directory
 3. Run `npm install`
 4. Create database
 5. Create an `.env` file for the variables
 6. Run `npm start` to start the project at http://localhost:process.env.PORT
+
+# Description
+
+These batch of codes are used to authenticate a User to login using the google emails and to be able to send the emails <br> and also it can help you to subscribe to the any certain website and unsubscribe at any time you need it 
+
+## Documentation
+Below are the endpoints exposed by the service
+/
+/failed
+/success
+
+### Dependencies
+npm
+
+## Deployment
+link : https://operations-production.up.railway.app/
+
