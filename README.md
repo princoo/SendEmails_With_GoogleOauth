@@ -31,7 +31,7 @@ Built with these technologies
 These batch of codes are used to authenticate a User to login using the google emails and to be able to send the emails <br> and also it can help you to subscribe to the any certain website and unsubscribe at any time you need it 
 
 ## Documentation
-Below are the endpoints exposed by the service
+Below are the endpoints exposed by the service <br>
 / <br>
 /failed <br>
 /success <br>
